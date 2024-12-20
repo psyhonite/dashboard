@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="dashboard" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>DASHBOARD</h1>
+        <div class="container">
+            <!-- Заметка на сегодня -->
+            <div class="current-day-note card" id="currentDayNote">
+                <h2>Заметка на сегодня</h2>
+                <div id="currentDayNoteContent">
+                    <p>Нет заметок на сегодня.</p>
+                </div>
+            </div>
+
+            <!-- Погода -->
+            <div class="weather card">
+                <h2>Погода</h2>
+                <p id="city">Город: Загрузка...</p>
+                <p id="temperature">Температура: Загрузка...</p>
+                <p id="description">Описание: Загрузка...</p>
+                <img id="weatherIcon" src="" alt="Иконка погоды">
+            </div>
+
+            <!-- Курсы валют -->
+            <div class="currency-rates card">
+                <h2>Курсы валют</h2>
+                <div id="rates-output">
+                    <p>Загрузка курсов...</p>
+                </div>
+            </div>
+
+            <!-- Генератор ответов -->
+            <div class="generator card">
+                <h2>Нажми, и узнай, можешь ли ты пойти в гости!</h2>
+                <button onclick="generateResponse()" id="generateButton">Сгенерировать ответ</button>
+                <div class="output" id="output"></div>
+                <p id="nextTime" style="font-size: 0.8rem; color: #777; margin-top: 5px;">
+                    <!-- Здесь будет отображаться время до следующего нажатия -->
+                </p>
+            </div>
+
+            <div class="scrum-board card">
+                <h2>Трекер текущих задач</h2>
+                <canvas id="confettiCanvas" style="position: absolute; pointer-events: none;"></canvas>
+                <div class="columns">
+                    <div class="column" id="toDo">
+                        <h3>To Do</h3>
+                        <ul class="task-list" id="toDoList"></ul>
+                    </div>
+                    <div class="column" id="inProgress">
+                        <h3>In Progress</h3>
+                        <ul class="task-list" id="inProgressList"></ul>
+                    </div>
+                    <div class="column" id="done">
+                        <h3>Done</h3>
+                        <ul class="task-list" id="doneList"></ul>
+                    </div>
+                </div>
+                <div class="task-input-container">
+                    <input type="text" id="taskInput" placeholder="Введите задачу">
+                    <button onclick="addTask()">Добавить</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="planner card">
+            <h2>Календарь</h2>
+            <div class="calendar-container">
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prevMonth"><img class="calendar-img" src="icons/left_arrow.svg"
+                                alt="left arrow"></button>
+                        <h3 id="currentMonthYear"></h3>
+                        <button id="nextMonth"><img class="calendar-img" src="icons/right_arrow.svg"
+                                alt="right arrow"></button>
+                    </div>
+                    <div class="calendar-days">
+                        <div>Пн</div>
+                        <div>Вт</div>
+                        <div>Ср</div>
+                        <div>Чт</div>
+                        <div>Пт</div>
+                        <div>Сб</div>
+                        <div>Вс</div>
+                    </div>
+                    <div class="calendar-dates" id="calendarDates"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="noteSidebar" class="note-sidebar">
+            <div class="sidebar-header">
+                <h3>Заметка на <span id="sidebarDate"></span></h3>
+                <button id="closeSidebar" class="close-button">×</button>
+            </div>
+            <div class="sidebar-content">
+                <div class="input-group">
+                    <label for="noteTitle">Заголовок</label>
+                    <input type="text" id="noteTitle">
+                </div>
+                <div class="input-group">
+                    <label for="noteBody">Текст заметки</label>
+                    <textarea id="noteBody"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Теги</label>
+                    <div class="tags-container" id="tagsContainer">
+                        <!-- Предопределенные теги будут здесь -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="customTag">Добавить тег</label>
+                    <div class="custom-tag-input">
+                        <input type="text" id="customTag">
+                        <button id="addTagButton">Добавить</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Цвет тега</label>
+                    <input type="color" id="tagColor">
+                </div>
+                <button id="saveNote" class="save-button">Сохранить заметку</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js/dist/index.min.js"></script>
+
+</body>
+
+</html>

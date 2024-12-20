@@ -1,0 +1,760 @@
+/* Общие стили */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f0f4f8;
+    color: #34495e;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease;
+}
+
+main {
+    padding-bottom: 45px;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 2rem;
+}
+
+/* Контейнер */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 95%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px auto;
+}
+
+/* Общие стили для карточек */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.09);
+}
+
+.card h2 {
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* Заметка на сегодня */
+.current-day-note {
+    grid-column: 1 / -1;
+    /* Занимает всю ширину */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.current-day-note #currentDayNoteContent {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.current-day-note #currentDayNoteContent p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.current-day-note .label {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: white;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+/* Погода */
+.weather {
+    text-align: center;
+
+}
+
+.weatherIcon {
+    margin: 0auto;
+}
+
+.weather p {
+    font-size: 0.9rem;
+    color: #5e7a99;
+    margin: 8px 0;
+}
+
+.weather img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+/* Курсы валют */
+.currency-rates {
+    text-align: center;
+}
+
+#rates-output {
+    margin-top: 15px;
+}
+
+#rates-output p {
+    font-size: 0.9rem;
+    color: #5e7a99;
+    margin: 6px 0;
+    font-weight: 500;
+}
+
+/* Генератор */
+.generator {
+    text-align: center;
+}
+
+.generator button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.generator button:hover {
+    background: #2980b9;
+}
+
+.generator .output {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Scrum Task Tracker */
+.scrum-board {
+    grid-column: 1 / -1;
+}
+
+.scrum-board h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.column {
+    background: #ecf0f1;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.column h3 {
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    min-height: 80px;
+}
+
+.task-list li {
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-left: 4px solid #3498db;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.task-input-container {
+    display: flex;
+    margin-top: 15px;
+    gap: 8px;
+}
+
+.task-input-container input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #bdc3c7;
+    font-size: 0.9rem;
+}
+
+.task-input-container button {
+    padding: 10px 16px;
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.task-input-container button:hover {
+    background: #219653;
+}
+
+/* Кнопка удаления задачи */
+.task-list button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.task-list button:hover {
+    background: #c0392b;
+}
+
+/* Стили для конфетти (не меняем) */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Обновленный стиль для планировщика и календаря */
+.planner.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.planner h2 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Занимает всю доступную ширину контейнера */
+}
+
+.calendar {
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 600px;
+    /* Увеличена максимальная ширина */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /* Увеличен горизонтальный отступ */
+}
+
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    /* Увеличен размер шрифта */
+    color: #555;
+    font-weight: 600;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    /* Увеличен размер шрифта */
+    cursor: pointer;
+    color: #777;
+    padding: 5px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.calendar-header button:hover {
+    opacity: 1;
+}
+
+.calendar-img {
+    width: 12px;
+    /* Увеличен размер изображения */
+    height: auto;
+    vertical-align: middle;
+}
+
+.calendar-days,
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-days {
+    font-weight: 500;
+    color: #999;
+    font-size: 0.9rem;
+    /* Увеличен размер шрифта */
+}
+
+.calendar-days div {
+    padding: 10px;
+    /* Увеличен отступ */
+    text-align: center;
+}
+
+.calendar-dates div {
+    padding: 12px 8px;
+    /* Увеличены отступы */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-size: 1rem;
+    /* Увеличен размер шрифта */
+    color: #666;
+    border-radius: 8px;
+    margin: 2px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 80px;
+    /* Минимальная высота для ячейки */
+}
+
+.calendar-dates div:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.calendar-dates div span.date {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.calendar-dates div .label-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+    /* Размещаем контейнер лейблов внизу */
+}
+
+.calendar-dates div .label {
+    display: block;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 2px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Стиль для бокового меню заметок */
+.note-sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1001;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1001;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-sidebar.open {
+    right: 0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.sidebar-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.input-group select,
+.input-group input[type="text"],
+.input-group textarea,
+.input-group input[type="color"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tags-container .tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    background-color: #eee;
+    color: #c5c5c5;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tags-container .tag.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.custom-tag-input {
+    display: flex;
+    gap: 8px;
+}
+
+.custom-tag-input input[type="text"] {
+    flex-grow: 1;
+}
+
+/* Стили для кнопок в боковой панели */
+.note-sidebar .close-button,
+.note-sidebar .save-button,
+.note-sidebar #addTagButton {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    background: #3498db;
+    /* Используем цвет основных кнопок */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    /* Добавим отступ сверху */
+}
+
+.note-sidebar .close-button:hover,
+.note-sidebar .save-button:hover,
+.note-sidebar #addTagButton:hover {
+    background: #2980b9;
+    /* Цвет при наведении */
+}
+
+/* Дополнительные стили для кнопки "Закрыть" */
+.note-sidebar .close-button {
+    background: none;
+    color: #777;
+    box-shadow: none;
+    font-size: 1.5rem;
+    padding: 5px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.note-sidebar .close-button:hover {
+    opacity: 1;
+    background-color: transparent;
+    /* Убираем цвет фона при наведении */
+    color: #333;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .calendar {
+        max-width: 500px;
+    }
+
+    .note-sidebar {
+        width: 320px;
+        right: -320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+        margin-top: 15px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .scrum-board {
+        grid-column: auto;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .calendar {
+        max-width: 100%;
+    }
+
+    .calendar-header {
+        padding: 10px 15px;
+    }
+
+    .calendar-header h3 {
+        font-size: 1rem;
+    }
+
+    .calendar-header button {
+        font-size: 1rem;
+        padding: 3px;
+    }
+
+    .calendar-img {
+        width: 10px;
+    }
+
+    .calendar-days div {
+        padding: 8px 5px;
+        font-size: 0.8rem;
+    }
+
+    .calendar-dates div {
+        padding: 10px 6px;
+        font-size: 0.9rem;
+        min-height: 60px;
+    }
+
+    .note-sidebar {
+        width: 90%;
+        right: -90%;
+    }
+
+    .note-sidebar.open {
+        right: 0;
+    }
+
+    .sidebar-header {
+        padding: 15px;
+    }
+
+    .sidebar-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .sidebar-content {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
+    }
+
+    .input-group select,
+    .input-group input[type="text"],
+    .input-group textarea,
+    .input-group input[type="color"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-list button {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .task-input-container {
+        flex-direction: column;
+    }
+
+    .task-input-container button {
+        width: 100%;
+    }
+
+    .planner h2 {
+        font-size: 1.2rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .calendar-days div {
+        padding: 6px 3px;
+        font-size: 0.7rem;
+    }
+
+    .calendar-dates div {
+        padding: 8px 5px;
+        font-size: 0.8rem;
+        min-height: 50px;
+    }
+
+    .calendar-dates div span.date {
+        margin-bottom: 2px;
+        font-size: 0.9rem;
+    }
+
+    .calendar-dates div .label {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+    }
+
+    .note-sidebar {
+        width: 95%;
+        right: -95%;
+    }
+
+    .sidebar-header h3 {
+        font-size: 1rem;
+    }
+
+    .sidebar-content {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .input-group label {
+        font-size: 0.8rem;
+    }
+
+    .input-group select,
+    .input-group input[type="text"],
+    .input-group textarea,
+    .input-group input[type="color"] {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}
